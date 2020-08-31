@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row">
+        <div class="title">
+            <h1 style="margin-left: 15px;">Edit Loan for application: {{idLoan}}</h1>
+        </div>
+      </div>
+    <div 
+        class="row">
+        <div class="form">
+            <form 
+                [formGroup]="LoanForm" 
+                (ngSubmit)="onEdit()">
+    
+                <div class="row">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Name</mat-label>
+                        <input 
+                            matInput
+                            placeholder="Name"
+                            type="text"
+                            formControlName="name"
+                            required>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Email</mat-label>
+                        <input
+                            matInput
+                            placeholder="pat@example.com" 
+                            type="email"
+                            formControlName="email"
+                            required>
+                        <mat-error 
+                            *ngIf="LoanForm.controls.email.invalid">
+                            {{getErrorMessage()}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Phone</mat-label>
+                        <input 
+                            matInput
+                            placeholder="Phone"
+                            type="text"
+                            formControlName="phone"
+                            required>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Amount</mat-label>
+                        <input
+                            matInput 
+                            placeholder="Amount"
+                            type="number"
+                            formControlName="amount"
+                            required>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <div class="content_btn">
+                        <button   
+                            type="reset" 
+                            mat-button
+                            class="btn"
+                            color="accent"
+                            [routerLink]="['home']">
+                            Cancel
+                        </button>
+                    </div>
+                    <div class="content_btn">
+                        <button 
+                            mat-button
+                            class="btn"
+                            color="primary"
+                            type="submit"
+                            [disabled]="LoanForm.pristine">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
